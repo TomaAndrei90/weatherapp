@@ -10,9 +10,11 @@ Basic:
       ✔ just display the temp @done(20-05-31 14:10)
       ☐ research if it is C or F and add appropriate symbol
       ☐ configure which temp to show based on location or maybe user settings?
-  ✔ current weather card @done(20-05-31 15:52)
-  ☐ daily slider
-  ☐ hourly slider
+  ✔ abstractize weather card @done(20-05-31 17:11)
+  ✔ current weather card @done(20-05-31 17:11)
+  ☐ daily card
+  ☐ hourly card
+  ☐ sliders
   ☐ humidity
   ☐ wind speed
   ☐ highest and lowest temperature of each day

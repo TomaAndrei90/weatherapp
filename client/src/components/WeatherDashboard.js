@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import CurrentWeatherCard from './CurrentWeatherCard';
+import WeatherCard from './WeatherCard';
 import { getWeather } from '../API/API';
 
 const WeatherDashboard = () => {
-  const [ mainInfo, setMainInfo ] = useState({ 
-    timezone: '',
-    currentTemp: '',
-    iconSrc: '',
+  const [ currentInfo, setCurrentInfo ] = useState({
+    date: new Date(),
   });
 
-  const [ currentInfo, setCurrentInfo ] = useState({
-    currentDate: new Date(),
-    currentTemp: '',
-    currentDescription: '',
-    iconSrc: '',
-  }) 
+  const [ dailyInfos, setDailyInfos ] = useState([]);
+  const [ hourlyInfos, setHourlyInfos ] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -22,35 +16,29 @@ const WeatherDashboard = () => {
         const response = await getWeather();
         if (!response) throw Error;
         console.log('from hook', response);
-        const { 
-          timezone, 
-          current: { 
-            dt: currentDt,
-            temp: currentTemp,
-            feels_like: currentFeel,
-            weather: [{ 
-              icon: currentIconCode,
-              description: currentDescription,
-            }]
-          } 
-        } = response;
-        
-        const currentDate = new Date(currentDt * 1000);
-        console.log(currentDate)
+        // const { 
+        //   timezone, 
+        //   current: { 
+        //     dt: currentDt,
+        //     temp: currentTemp,
+        //     feels_like: currentFeel,
+        //     weather: [{ 
+        //       icon: currentIconCode,
+        //       description: currentDescription,
+        //     }]
+        //   } 
+        // } = response;
 
-        const iconSrc = `http://openweathermap.org/img/wn/${currentIconCode}@2x.png`;
-        setMainInfo({
-          timezone,
-          currentTemp,
-          iconSrc
-        });
+        const { timezone, current, daily, hourly } = response;
+
         setCurrentInfo({
-          currentDate,
-          currentTemp,
-          currentFeel,
-          currentDescription,
-          iconSrc
+          ...current,
+          timezone,
         });
+
+        setDailyInfos(daily);
+        setHourlyInfos(hourly);
+
       } catch (error) {
         console.error(error);
       }
@@ -59,12 +47,37 @@ const WeatherDashboard = () => {
 
   const weatherDashboard = (
     <div>
-      <div className="main-info">
-        { mainInfo.timezone } / { mainInfo.currentTemp } / <img src={mainInfo.iconSrc} alt="Weather Icon" />
+      <WeatherCard { ...currentInfo } type="current" />
+      {/* { dailyInfos.map(dailyInfo => <WeatherCard { ...dailyInfo } type="daily" temp={dailyInfo.temp.day}  />) } */}
+      <div>
+        <h5>current weather</h5>
+        <ul>
+          <li>city</li>
+          <li>hour</li>
+          <li>icon</li>
+          <li>temp</li>
+          <li>description</li>
+          <li>feels like</li>
+        </ul>
       </div>
-      <CurrentWeatherCard { ...currentInfo }/>
-      <div>hourly slider</div>
-      <div>daily slider</div>
+      <div>
+        <h5>hourly slider</h5>
+        <ul>
+          <li>hour</li>
+          <li>icon</li>
+          <li>temp</li>
+          <li>description</li>
+        </ul>
+      </div>
+      <div>
+        <h5>daily slider</h5>
+        <ul>
+          <li>weekday monthday</li>
+          <li>icon</li>
+          <li>maxtemp mintemp</li>
+          <li>description</li>
+        </ul>
+      </div>
     </div>
   )
 
