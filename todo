@@ -1,0 +1,37 @@
+Basic:
+  main info:
+    display city name:
+      ✔ just display timezone at first @done(20-05-31 14:08)
+      ☐ change to show actual city with geolocation
+    current weather icon:
+      ✔ just display from first weather condition @done(20-05-31 14:09)
+      ☐ research why are there multiple weather conditions and where should the icon come from
+    temperature:
+      ✔ just display the temp @done(20-05-31 14:10)
+      ☐ research if it is C or F and add appropriate symbol
+      ☐ configure which temp to show based on location or maybe user settings?
+  ✔ current weather card @done(20-05-31 15:52)
+  ☐ daily slider
+  ☐ hourly slider
+  ☐ humidity
+  ☐ wind speed
+  ☐ highest and lowest temperature of each day
+  ☐ appropriate image for sunny/rainy/cloudy/snowy weather conditions
+  ☐ responsive design
+  ☐ refresh every 5 minutes with the exact temperature and weather conditions
+  ☐ some cards that show tonight and tomorrow maybe
+
+ADVANCED:
+  ☐ click on a day to see its hourly forecast
+  ☐ routes that can display the 5-day forecast, along with the name-of-day and the hourly forecast for that day.
+  ☐ openweathermap api, feed real data into app
+  ☐ add a graphics library like vx
+  ☐ make user authentication
+  ☐ save user preferences/settings
+  
+REFERENCE
+  https://www.upgrad.com/blog/react-project-ideas-topics-beginners/ #3
+  https://openweathermap.org
+  https://medium.com/vx-code/getting-started-with-vx-1756bb661410
+  more inspiration here? https://github.com/drminnaar/react-weather-standard
+  https://developers.google.com/maps/documentation/geolocation/intro
