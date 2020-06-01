@@ -6,20 +6,32 @@ const WeatherCard = ({
     dt, 
     temp,
     feels_like,
-    description,
     weather,
   }) => {
-    console.log(weather)
+    const { icon, description } = weather[0];
     const OPEN_WEATHER_IMG_URL = 'http://openweathermap.org/img/wn/';
-    const iconSrc = `${OPEN_WEATHER_IMG_URL}${weather[0].icon}.png`
+    const iconSrc = `${OPEN_WEATHER_IMG_URL}${icon}.png`;
+
     let displayTime = 'placeholder time';
-    if (type === 'current') {
-      const date = new Date(dt * 1000);
+    const date = new Date(dt * 1000);
+    if (type === 'current' || type === 'hourly') {
       const hours = date.getHours();
       const minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
       const meridiem = hours > 12 ? 'PM' : 'AM';
       displayTime = `${hours} : ${minutes} ${meridiem}`;
     }
+
+    if (type === 'daily') {
+      const weekdays = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+      const weekday = weekdays[date.getDay()];
+      const dayOfMonth = date.getDate();
+      let dayOfMonthSuffix = 'th';
+      if (dayOfMonth === 1 || dayOfMonth === 21 || dayOfMonth === 31 ) dayOfMonthSuffix = 'st';
+      if (dayOfMonth === 2 || dayOfMonth === 22 ) dayOfMonthSuffix = 'nd';
+      if (dayOfMonth === 3 || dayOfMonth === 23 ) dayOfMonthSuffix = 'rd';
+      displayTime = `${weekday} ${dayOfMonth}${dayOfMonthSuffix}`;
+    }
+    
     console.log(type)
       
     const weatherCard = (
@@ -27,9 +39,10 @@ const WeatherCard = ({
         { type === 'current' && <div>{ timezone }</div> }
         <div>{ displayTime }</div>
         <div><img src={ iconSrc } alt="Weather Icon" /></div>
-        <div>{ temp }</div>
-        { type === 'current' && <div>Real Feel: { feels_like }</div> }
+        { (type === 'current' || type === 'hourly') && <div>{ temp }</div> }
+        { type === 'daily' && <div>{ temp.max } / { temp.min }</div> }
         <div>{ description }</div>
+        { type === 'current' && <div>Real Feel: { feels_like }</div> }
       </div>
     )
 
