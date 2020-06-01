@@ -4,6 +4,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import WeatherCard from './WeatherCard';
 import { getWeather } from '../API/API';
 
+import './WeatherDashboard.css';
+
 const WeatherDashboard = () => {
   const [ currentInfo, setCurrentInfo ] = useState({
     date: new Date(),
@@ -12,7 +14,15 @@ const WeatherDashboard = () => {
   const [ dailyInfos, setDailyInfos ] = useState([]);
   const [ hourlyInfos, setHourlyInfos ] = useState([]);
 
-  const [ loading, setLoading ] = useState(true);
+	const [ loading, setLoading ] = useState(true);
+	
+	const carouselProps = {
+		showIndicators: false,
+		showStatus: false,
+		showThumbs: false,
+		centerMode: true,
+		centerSlidePercentage: '33.33'
+	};
 
   useEffect(() => {
     (async () => {
@@ -42,8 +52,10 @@ const WeatherDashboard = () => {
       { loading ? <span>loading...</span> : 
         <> 
           <WeatherCard { ...currentInfo } type="current" />
-          <Carousel>{ dailyInfos.map(dailyInfo => <WeatherCard { ...dailyInfo } type="daily" />) }</Carousel>
-          <Carousel>{ hourlyInfos.map(hourlyInfo => <WeatherCard { ...hourlyInfo } type="hourly" />) }</Carousel>
+					<h5>Daily</h5>
+          <Carousel {...carouselProps}>{ dailyInfos.map(dailyInfo => <WeatherCard { ...dailyInfo } type="daily" />) }</Carousel>
+					<h5>Hourly</h5>
+          <Carousel {...carouselProps}>{ hourlyInfos.map(hourlyInfo => <WeatherCard { ...hourlyInfo } type="hourly" />) }</Carousel>
         </>
       }
     </>
