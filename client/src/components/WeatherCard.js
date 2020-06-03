@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+
+import './WeatherCard.css';
 
 const WeatherCard = ({ 
     type,
@@ -35,12 +37,12 @@ const WeatherCard = ({
     console.log(type)
       
     const weatherCard = (
-      <div style={{border: '1px solid black'}}>
-        { type === 'current' && <div>{ timezone }</div> }
+      <div className={`WeatherCard WeatherCard--${type}`}>
+        { type === 'current' && <h3>{ timezone } </h3> }
         <div>{ displayTime }</div>
         <div><img src={ iconSrc } alt="Weather Icon" /></div>
-        { (type === 'current' || type === 'hourly') && <div>{ temp }</div> }
-        { type === 'daily' && <div>{ temp.max } / { temp.min }</div> }
+        { (type === 'current' || type === 'hourly') && <div className="WeatherCard__temp">{ temp }</div> }
+        { type === 'daily' && <div><span className="WeatherCard__temp">{ temp.max }</span> / { temp.min }</div> }
         <div>{ description }</div>
         { type === 'current' && <div>Real Feel: { feels_like }</div> }
       </div>

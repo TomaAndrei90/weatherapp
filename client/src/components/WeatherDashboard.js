@@ -19,7 +19,8 @@ const WeatherDashboard = () => {
 	const carouselProps = {
 		showIndicators: false,
 		showStatus: false,
-		showThumbs: false,
+    showThumbs: false,
+    showArrows: false,
 		centerMode: true,
 		centerSlidePercentage: '33.33'
 	};
@@ -52,10 +53,14 @@ const WeatherDashboard = () => {
       { loading ? <span>loading...</span> : 
         <> 
           <WeatherCard { ...currentInfo } type="current" />
-					<h5>Daily</h5>
-          <Carousel {...carouselProps}>{ dailyInfos.map(dailyInfo => <WeatherCard { ...dailyInfo } type="daily" />) }</Carousel>
-					<h5>Hourly</h5>
-          <Carousel {...carouselProps}>{ hourlyInfos.map(hourlyInfo => <WeatherCard { ...hourlyInfo } type="hourly" />) }</Carousel>
+          <div className="WeatherDashboard WeatherDashboard__daily">
+            <h3>Daily</h3>
+            <Carousel {...carouselProps}>{ dailyInfos.map(dailyInfo => <WeatherCard { ...dailyInfo } type="daily" />) }</Carousel>
+					</div>
+          <div className="WeatherDashboard WeatherDashboard__hourly">
+            <h3>Hourly</h3>
+            <Carousel {...carouselProps}>{ hourlyInfos.map(hourlyInfo => <WeatherCard { ...hourlyInfo } type="hourly" />) }</Carousel>
+          </div>
         </>
       }
     </>

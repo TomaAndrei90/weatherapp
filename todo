@@ -12,21 +12,23 @@ Basic:
       ☐ configure which temp to show based on location or maybe user settings?
   ✔ abstractize weather card @done(20-05-31 17:11)
   ✔ current weather card @done(20-05-31 17:11)
-  ☐ daily card
-  ☐ hourly card
-  ☐ sliders
+  ✔ daily card @done(20-06-03 19:15)
+  ✔ hourly card @done(20-06-03 19:15)
+  ✔ sliders @done(20-06-03 19:16)
+  ☐ sliders style
+  ☐ sliders arrow behaviour (don't have to click twice when on first/last slide)
   ☐ humidity
   ☐ wind speed
-  ☐ highest and lowest temperature of each day
-  ☐ appropriate image for sunny/rainy/cloudy/snowy weather conditions
   ☐ responsive design
   ☐ refresh every 5 minutes with the exact temperature and weather conditions
   ☐ some cards that show tonight and tomorrow maybe
+  ☐ replace openweather icons with react-icons weather icons?
 
 ADVANCED:
   ☐ click on a day to see its hourly forecast
   ☐ routes that can display the 5-day forecast, along with the name-of-day and the hourly forecast for that day.
-  ☐ openweathermap api, feed real data into app
+  ✔ openweathermap api, feed real data into app @done(20-06-03 19:18)
+  ☐ find out a way to keep the api key hidden, maybe possible without building a server?
   ☐ add a graphics library like vx
   ☐ make user authentication
   ☐ save user preferences/settings

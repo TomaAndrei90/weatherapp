@@ -1,3 +1,28 @@
+.WeatherDashboard {
+  text-align: center;
+}
+
+.WeatherDashboard h3 {
+  padding: 0.5rem 0;
+  color: var(--light);
+}
+
+.WeatherDashboard__daily {
+  background: var(--blue);
+}
+
+.WeatherDashboard__daily h3 {
+  background: #397da7;
+}
+
+.WeatherDashboard__hourly {
+  background: var(--teal);
+}
+
+.WeatherDashboard__hourly h3 {
+  background: #2c7b78;
+}
+
 .carousel .slide {
 	background: transparent;
 }

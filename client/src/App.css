@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --red: #b61a1a;
+  --blue: #6eadd4;
+  --teal: #4aada9;
+  --dark: #2f3a49;
+  --light: rgba(255,255,255,0.8);
+}
+
+body {
+    font-family: 'Baloo Paaji 2', cursive;
+    color: var(--dark);
+}

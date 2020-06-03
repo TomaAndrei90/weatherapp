@@ -1,0 +1,18 @@
+.header {
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--dark);
+  color: var(--light);
+}
+
+.header__title {
+  margin: 0 1rem;
+  padding-top: 0.3rem;
+}
+
+.header svg {
+  width: 2.5em;
+  height: 2.5em;
+}

@@ -1,0 +1,19 @@
+.WeatherCard {
+  text-align: center;
+}
+
+.WeatherCard--current {
+  /* background: linear-gradient(to right, #fff, #e07768); */
+  /* box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 1); */
+}
+.WeatherCard--daily {
+  
+}
+
+.WeatherCard--hourly {
+}
+
+.WeatherCard__temp {
+  color: var(--red);
+  font-weight: bold;
+}
