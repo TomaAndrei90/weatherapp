@@ -38,13 +38,14 @@ const WeatherCard = ({
       
     const weatherCard = (
       <div className={`WeatherCard WeatherCard--${type}`}>
-        { type === 'current' && <h3>{ timezone } </h3> }
-        <div>{ displayTime }</div>
-        <div><img src={ iconSrc } alt="Weather Icon" /></div>
+        { type === 'current' && <div className="overlay"></div> }
+				{ type === 'current' && <h3 className="WeatherCard__city">{ timezone } </h3> }
+        <div className="WeatherCard__time">{ displayTime }</div>
+        <div className="WeatherCard__icon"><img src={ iconSrc } alt="Weather Icon" /></div>
         { (type === 'current' || type === 'hourly') && <div className="WeatherCard__temp">{ temp }</div> }
         { type === 'daily' && <div><span className="WeatherCard__temp">{ temp.max }</span> / { temp.min }</div> }
-        <div>{ description }</div>
-        { type === 'current' && <div>Real Feel: { feels_like }</div> }
+        <div className="WeatherCard__description">{ description }</div>
+        { type === 'current' && <div className="WeatherCard__feel">Real Feel: { feels_like }</div> }
       </div>
     )
 
