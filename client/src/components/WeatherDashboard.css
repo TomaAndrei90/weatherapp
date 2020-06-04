@@ -23,6 +23,10 @@
   background: #2c7b78;
 }
 
+.carousel {
+	min-height: 12rem;
+	padding-top: 1rem;
+}
 .carousel .slide {
 	background: transparent;
 }

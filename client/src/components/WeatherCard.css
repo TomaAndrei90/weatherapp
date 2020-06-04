@@ -21,14 +21,18 @@
 .WeatherCard--current .WeatherCard__feel {
 	color: var(--light);
 	color: #fff;
+	line-height: 1.3rem;
 }
 
 .WeatherCard--current .WeatherCard__icon {
 	position: absolute;
-	right: 1rem;
-	bottom: 1rem;
-	display: flex;
-	border: 3px dashed var(--light);
+	right: 1.5rem;
+	bottom: 1.5rem;
+}
+
+.WeatherCard--current .WeatherCard__icon i {
+	font-size: 2.4rem;
+	color: #fff;
 }
 
 .WeatherCard--current .WeatherCard__icon img {
@@ -40,6 +44,17 @@
 	font-size: 2rem;
 	color: white;
 	line-height: 2rem;
+	display: flex;
+	align-items: center;
+}
+
+.WeatherCard--current .WeatherCard__temp i {
+	margin-left: 0.5rem;;
+	font-size: 2.2rem;
+}
+
+.react-icons {
+  vertical-align: middle;
 }
 
 .WeatherCard--current .overlay {
@@ -59,14 +74,48 @@
 	
 }
 
-.WeatherCard--daily {
-  
+.overlay-dark {
+	position: absolute;
+	background: rgba(47, 58, 73, 0.2);
+	height: 6rem;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	border-top: 1px dotted;
 }
 
-.WeatherCard--hourly {
+.WeatherCard--daily .WeatherCard__temp,
+.WeatherCard--hourly .WeatherCard__temp {
+	/* display: flex; */
+	/* justify-content: center; */
 }
 
-.WeatherCard__temp {
-  color: var(--red);
-  font-weight: bold;
+.WeatherCard--daily .WeatherCard__temp,
+.WeatherCard--hourly .WeatherCard__temp,
+.WeatherCard--daily .WeatherCard__temp i,
+.WeatherCard--hourly .WeatherCard__temp i {
+	font-weight: bold;
+	color: #590000;
+}
+
+.WeatherCard--daily .WeatherCard__temp i,
+.WeatherCard--hourly .WeatherCard__temp i {
+	font-weight: bold;
+	transform: translateY(0.2rem);
+	margin-left: 0.2rem;;
+}
+
+.WeatherCard__min {
+	font-size: 0.8rem;
+}
+
+.WeatherCard--daily .WeatherCard__icon,
+.WeatherCard--hourly .WeatherCard__icon {
+	font-size: 2.5rem;
+}
+
+.WeatherCard__description {
+	/* color: var(--light); */
 }

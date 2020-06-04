@@ -8,21 +8,24 @@ Basic:
       ☐ research why are there multiple weather conditions and where should the icon come from
     temperature:
       ✔ just display the temp @done(20-05-31 14:10)
-      ☐ research if it is C or F and add appropriate symbol
+			✔ research if it is C or F and add appropriate symbol @done(20-06-04 15:01)
+				it was F, i switched it to C in the api url params
       ☐ configure which temp to show based on location or maybe user settings?
   ✔ abstractize weather card @done(20-05-31 17:11)
   ✔ current weather card @done(20-05-31 17:11)
   ✔ daily card @done(20-06-03 19:15)
   ✔ hourly card @done(20-06-03 19:15)
   ✔ sliders @done(20-06-03 19:16)
-  ☐ sliders style
-  ☐ sliders arrow behaviour (don't have to click twice when on first/last slide)
+  ✔ sliders style @done(20-06-04 15:01)
+  ☐ sliders arrow behaviour (don't have to click twice when on first/last slide) + style
   ☐ humidity
   ☐ wind speed
   ☐ responsive design
   ☐ refresh every 5 minutes with the exact temperature and weather conditions
   ☐ some cards that show tonight and tomorrow maybe
-  ☐ replace openweather icons with react-icons weather icons?
+	✔ replace openweather icons with weather-icons @done(20-06-04 15:02)
+		https://github.com/erikflowers/weather-icons
+	☐ replace react-icons in header with weather-icons and remove react-icons module
 
 ADVANCED:
   ☐ click on a day to see its hourly forecast
