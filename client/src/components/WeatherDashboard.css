@@ -1,5 +1,6 @@
 .WeatherDashboard {
-  text-align: center;
+	text-align: center;
+	position: relative;
 }
 
 .WeatherDashboard h3 {
@@ -31,10 +32,33 @@
 	background: transparent;
 }
 
-.carousel .control-next.control-arrow::before {
-	border-left-color: red;
+.WeatherDashboard .WeatherDashboard__prev,
+.WeatherDashboard .WeatherDashboard__next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	border: 0;
+	padding: .375rem .75rem;
+	font-size: 1.5rem;
+	line-height: 1.5;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	color: var(--light);
+	background-color: transparent;
+	cursor: pointer;
 }
 
-.carousel .control-prev.control-arrow::before {
-	border-right-color: red;
+.WeatherDashboard .WeatherDashboard__prev:hover,
+.WeatherDashboard .WeatherDashboard__next:hover {
+	color: var(--dark);
+} 
+
+.WeatherDashboard .WeatherDashboard__prev {
+	left: 0;
+}
+
+.WeatherDashboard .WeatherDashboard__next {
+	right: 0;
 }

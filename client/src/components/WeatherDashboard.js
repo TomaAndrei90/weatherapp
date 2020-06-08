@@ -15,14 +15,18 @@ const WeatherDashboard = () => {
   const [ hourlyInfos, setHourlyInfos ] = useState([]);
 
 	const [ loading, setLoading ] = useState(true);
+
+	const [ dailyCurrentIndex, setDailySlide] = useState(0);
+	const [ hourlyCurrentIndex, setHourlySlide] = useState(0);
 	
+	const displayCount = 3;
 	const carouselProps = {
 		showIndicators: false,
 		showStatus: false,
     showThumbs: false,
     showArrows: false,
 		centerMode: true,
-		centerSlidePercentage: '33.33'
+		centerSlidePercentage: 100 / displayCount
 	};
 
   useEffect(() => {
@@ -53,13 +57,27 @@ const WeatherDashboard = () => {
       { loading ? <span>loading...</span> : 
         <> 
           <WeatherCard { ...currentInfo } type="current" />
+
           <div className="WeatherDashboard WeatherDashboard__daily">
             <h3>Daily</h3>
-            <Carousel {...carouselProps}>{ dailyInfos.map(dailyInfo => <WeatherCard { ...dailyInfo } type="daily" />) }</Carousel>
+						<button className="WeatherDashboard__prev" onClick={() => setDailySlide((dailyCurrentIndex - 3 + dailyInfos.length ) % dailyInfos.length)} >
+							<i className="wi wi-direction-left"></i>
+						</button>
+            <Carousel {...carouselProps} selectedItem={dailyCurrentIndex}>{ dailyInfos.map(dailyInfo => <WeatherCard { ...dailyInfo } type="daily" />) }</Carousel>
+						<button className="WeatherDashboard__next" onClick={() => setDailySlide((dailyCurrentIndex + 3 + dailyInfos.length ) % dailyInfos.length)} >
+							<i className="wi wi-direction-right"></i>
+						</button>
 					</div>
+					
           <div className="WeatherDashboard WeatherDashboard__hourly">
             <h3>Hourly</h3>
-            <Carousel {...carouselProps}>{ hourlyInfos.map(hourlyInfo => <WeatherCard { ...hourlyInfo } type="hourly" />) }</Carousel>
+						<button className="WeatherDashboard__prev" onClick={() => setHourlySlide((hourlyCurrentIndex - 3 + hourlyInfos.length ) % hourlyInfos.length)} >
+							<i className="wi wi-direction-left"></i>
+						</button>
+            <Carousel {...carouselProps} selectedItem={hourlyCurrentIndex}>{ hourlyInfos.map(hourlyInfo => <WeatherCard { ...hourlyInfo } type="hourly" />) }</Carousel>
+						<button className="WeatherDashboard__next" onClick={() => setHourlySlide((hourlyCurrentIndex + 3 + hourlyInfos.length ) % hourlyInfos.length)} >
+							<i className="wi wi-direction-right"></i>
+						</button>
           </div>
         </>
       }
