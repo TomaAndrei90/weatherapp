@@ -1,14 +1,14 @@
 import React from 'react';
-import { WiHorizon, WiHorizonAlt } from "react-icons/wi";
+import '../css/weather-icons.min.css';
 
 import './Header.css';
 
 const Header = () => {
   const header = (
     <nav className="header">
-      <WiHorizon />
+			<i className="wi wi-horizon"></i>
       <h1 className="header__title">Weather</h1>
-      <WiHorizonAlt />
+			<i className="wi wi-horizon-alt"></i>
     </nav>
   );
 

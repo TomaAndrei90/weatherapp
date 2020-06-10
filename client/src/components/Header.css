@@ -1,5 +1,5 @@
 .header {
-  padding: 0.3rem 0;
+	padding: 0.2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,10 +9,9 @@
 
 .header__title {
   margin: 0 1rem;
-  padding-top: 0.3rem;
 }
 
-.header svg {
-  width: 2.5em;
-  height: 2.5em;
+.header i {
+	font-size: 1.6rem;
+	margin-top: -0.275rem;
 }
