@@ -3,6 +3,13 @@
 	position: relative;
 }
 
+@media (min-width: 850px) {
+	.WeatherDashboard {
+		width: 50vw;
+		display: inline-block;
+	}
+}
+
 .WeatherDashboard h3 {
   padding: 0.5rem 0;
   color: var(--light);

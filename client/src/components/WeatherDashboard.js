@@ -18,8 +18,15 @@ const WeatherDashboard = () => {
 
 	const [ dailyCurrentIndex, setDailySlide] = useState(0);
 	const [ hourlyCurrentIndex, setHourlySlide] = useState(0);
+
+	const { innerWidth } = window;
 	
-	const displayCount = 3;
+	let displayCount = 3;
+	if (innerWidth >= 600) displayCount = 4;
+	if (innerWidth >= 850) displayCount = 3;
+	if (innerWidth >= 1020) displayCount = 4;
+	if (innerWidth >= 1250) displayCount = 5;
+
 	const carouselProps = {
 		showIndicators: false,
 		showStatus: false,
